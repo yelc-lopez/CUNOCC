@@ -1,5 +1,6 @@
 package com.example.administrador.cunocc;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -18,7 +19,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.view.Window;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.administrador.cunocc.Fragments.NoticiasFragment;
+import com.example.administrador.cunocc.Fragments.NoticiasV2Fragment;
 
 public class Main3Activity extends AppCompatActivity {
 
@@ -142,13 +152,34 @@ public class Main3Activity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            switch (position){
+                case 0:
+                    return new NoticiasV2Fragment();
+                case 1:
+                    return new NoticiasFragment();
+                case 2:
+                    return PlaceholderFragment.newInstance(position + 1);
+            }
+            return null;
         }
 
         @Override
         public int getCount() {
             // Show 3 total pages.
             return 3;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return getResources().getString(R.string.tab1);
+                case 1:
+                    return getResources().getString(R.string.tab2);
+                case 2:
+                    return getResources().getString(R.string.tab3);
+            }
+            return null;
         }
     }
 }

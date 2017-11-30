@@ -24,7 +24,7 @@ public class SplashScream extends Activity {
             }
         },4030);
 
-        //jonathan
+        //jonathanasdffffffffffffffffffffffffff
 
 
     }

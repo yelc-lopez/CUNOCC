@@ -23,10 +23,5 @@ public class SplashScream extends Activity {
 
             }
         },4030);
-
-        //jonathanasdffffffffffffffffffffffffff
-        // cinebtarios 12312323
-
-
     }
 }

@@ -6,67 +6,11 @@
     tools:context="com.example.administrador.cunocc.Fragments.NotasFragment">
 
 
-
-
-    <ScrollView
+    <TableLayout
+        android:id="@+id/notasTabla"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left|center"
-            android:orientation="horizontal">
+    </TableLayout>
 
-            <TextView
-                android:id="@+id/idCodigo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Codigo"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/idCurso"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Curso"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/idZona"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Zona"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/idFinal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Final"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/idTotal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Total"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Perfil"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-    </ScrollView>
 </LinearLayout>

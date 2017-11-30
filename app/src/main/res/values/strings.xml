@@ -12,4 +12,55 @@
     <string name="title">Articulo</string>
     <string name="info">Contenido De Articulo</string>
     <string name="code">Codigo</string>
+
+
+    <string-array name="codigoss">
+        <item>789453</item>
+        <item>565645</item>
+        <item>544645</item>
+        <item>644556</item>
+        <item>465454</item>
+    </string-array>
+
+    <string-array name="cursoss">
+        <item>Matematica</item>
+        <item>Fisica</item>
+        <item>Quimica</item>
+        <item>Algebra</item>
+        <item>Administracion De Empresas</item>
+    </string-array>
+
+
+    <string-array name="zonass">
+        <item>50</item>
+        <item>40</item>
+        <item>30</item>
+        <item>20</item>
+        <item>50</item>
+    </string-array>
+
+    <string-array name="finals">
+        <item>50</item>
+        <item>40</item>
+        <item>30</item>
+        <item>20</item>
+        <item>50</item>
+    </string-array>
+
+    <string-array name="totals">
+        <item>60</item>
+        <item>50</item>
+        <item>90</item>
+        <item>80</item>
+        <item>100</item>
+    </string-array>
+
+    <string-array name="perfils">
+        <item>Aprobado</item>
+        <item>Aprobado</item>
+        <item>Rechazado</item>
+        <item>Rechazado</item>
+        <item>Aprobado</item>
+    </string-array>
+
 </resources>

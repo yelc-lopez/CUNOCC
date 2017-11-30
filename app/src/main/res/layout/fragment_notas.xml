@@ -6,6 +6,8 @@
     tools:context="com.example.administrador.cunocc.Fragments.NotasFragment">
 
 
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -63,6 +65,7 @@
                 android:layout_weight="1"
                 android:text="Perfil"
                 android:textSize="24sp" />
+
         </LinearLayout>
 
     </ScrollView>

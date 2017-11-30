@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.administrador.cunocc.MainActivity"
-    android:background="@drawable/fondo4"
+    android:background="@drawable/nuevo1"
 
     >
 
@@ -19,8 +19,8 @@
         android:layout_alignBottom="@+id/editext2"
         android:layout_alignStart="@+id/editext2"
         android:layout_marginBottom="70dp"
-        android:background="@drawable/boton2"
-        android:textColor="@color/colorBlanco"
+        android:background="@drawable/btn"
+
         android:textDirection="locale"
         android:textAlignment="center"
 
@@ -33,10 +33,10 @@
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:background="@drawable/boton2"
+        android:background="@drawable/btn"
         android:hint="PIN"
         android:textAlignment="center"
-        android:textColor="@color/colorBlanco"
+
         android:textColorHint="@color/colorBlanco"
         android:textDirection="locale" />
 
@@ -47,7 +47,7 @@
         android:layout_below="@id/editext2"
         android:layout_width="115dp"
         android:layout_height="50dp"
-        android:background="@drawable/botoningresar"
+        android:background="@drawable/btningresar"
         />
 
 

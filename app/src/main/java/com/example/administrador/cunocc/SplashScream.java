@@ -22,6 +22,6 @@ public class SplashScream extends Activity {
                 finish();
 
             }
-        },4030);
+        },5030);
     }
 }

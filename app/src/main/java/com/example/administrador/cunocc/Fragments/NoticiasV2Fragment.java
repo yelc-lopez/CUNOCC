@@ -8,11 +8,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
+import com.example.administrador.cunocc.Adapters.ArticuloAdapter;
+import com.example.administrador.cunocc.models.Articulo;
 import com.example.administrador.cunocc.R;
 
 import org.jsoup.Jsoup;
@@ -21,12 +22,13 @@ import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class NoticiasV2Fragment extends Fragment {
 
-    EditText editText;
+    ListView listaArticulos;
     ImageView imageView;
     public NoticiasV2Fragment() {
         // Required empty public constructor
@@ -38,8 +40,17 @@ public class NoticiasV2Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_noticias_v2, container, false);
-        editText = (EditText) view.findViewById(R.id.editText);
-        imageView = (ImageView) view.findViewById(R.id.imageView);
+        listaArticulos = view.findViewById(R.id.listaArticulos);
+        imageView = view.findViewById(R.id.imagenConexion);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new CunocPage().execute();
+            }
+        });
+
+
         new CunocPage().execute();
 
         return view;
@@ -47,22 +58,58 @@ public class NoticiasV2Fragment extends Fragment {
 
 
     public class CunocPage extends AsyncTask<Void, Void, Void>{
-    String datos="yelc";
-    ArrayList<String> fotos = new ArrayList<>();
+
+    String paginaWeb="http://cunoc.edu.gt";
+    ArrayList<Articulo> Articulos = new ArrayList<>();
+    String tituloArticulo, infoArticulo, rutaImagen;    //variables temporales
+
         @Override
         protected Void doInBackground(Void... voids) {
             try{
-                Document doc = Jsoup.connect("http://cunoc.edu.gt").get();
-                Elements pngs = doc.select("img[src$=.jpg]");
-                datos = pngs.attr("src");
+                Document doc = Jsoup.connect(paginaWeb).get();
 
+                // Obtener Articulos
+                Elements articulos = doc.select("div#articulos");
+                Elements titulos = articulos.select("h2");
+                Elements articulo;
+                for (int i = 0; i <titulos.size()-1 ; i++) {
+                    Log.i("Titulo = ", titulos.get(i).text());
+                    tituloArticulo = titulos.get(i).text();
+                    if (i==0){
+                       articulo = articulos.select("div.leading-0");
+
+                    }else{
+                        articulo = articulos.select("div.item.column-"+i);
+                    }
+
+                    Elements contenido = articulo.select("p span");
+                    infoArticulo="";
+                    for (int j = 0; j < contenido.size()-2; j++) {
+                        Log.i("Contenido ", contenido.get(j).text());
+                        infoArticulo += contenido.get(j).text() + "\n";
+
+                        Log.i("info ",infoArticulo);
+                    }
+
+                    Elements png = articulo.select("img[src$=.jpg]");
+                    Log.i("Imagen = ",paginaWeb+png.attr("src"));
+                    rutaImagen = paginaWeb+png.attr("src");
+
+
+                    // agregar a la lista de articulos
+                    Articulos.add(new Articulo(
+                            tituloArticulo,
+                            infoArticulo,
+                            rutaImagen
+                    ));
+                }
+
+            /** obtener varias fotos de un articulo
+                Elements pngs = doc.select("img[src$=.jpg]");
                 Log.i("tamaño pngs ", String.valueOf(pngs.size()));
                 for (int i = 0; i < pngs.size(); i++) {
                     Log.i("atributo " , pngs.get(i).attr("src").toString());
-                    fotos.add(pngs.get(i).attr("src"));
-                }
-
-
+             }*/
 
             }catch (Exception e){e.printStackTrace();}
 
@@ -72,8 +119,14 @@ public class NoticiasV2Fragment extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            editText.setText(datos.toString());
-            Glide.with(getContext()).load("http://cunoc.edu.gt"+fotos.get(13)).into(imageView);
+            if (!Articulos.isEmpty()){
+                imageView.setVisibility(View.INVISIBLE);
+                ArticuloAdapter adapter = new ArticuloAdapter(getContext(),Articulos);
+                listaArticulos.setAdapter(adapter);
+            }else{
+                imageView.setVisibility(View.VISIBLE);
+                Toast.makeText(getContext(),"No tienes conexion a internet",Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

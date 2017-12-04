@@ -31,7 +31,7 @@ public class NotaAdapter extends ArrayAdapter<Nota> {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View view = inflater.inflate(R.layout.templatenotas,null);
 
-
+        /**
         codigo = view.findViewById(R.id.codigo);
         curso = view.findViewById(R.id.curso);
         zona= view.findViewById(R.id.zona);
@@ -44,7 +44,7 @@ public class NotaAdapter extends ArrayAdapter<Nota> {
         zona.setText(getItem(position).getZona());
         nfinal.setText(getItem(position).getNfinal());
         total.setText(getItem(position).getTotal());
-        perfil.setText(getItem(position).getPerfil());
+        perfil.setText(getItem(position).getPerfil());*/
         return view;
     }
 }

@@ -1,6 +1,5 @@
 package com.example.administrador.cunocc;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -17,19 +16,10 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
-import android.view.Window;
-import android.webkit.WebChromeClient;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.administrador.cunocc.Fragments.AsignacionesFragment;
 import com.example.administrador.cunocc.Fragments.NotasFragment;
-import com.example.administrador.cunocc.Fragments.NoticiasFragment;
 import com.example.administrador.cunocc.Fragments.NoticiasV2Fragment;
 
 public class Main3Activity extends AppCompatActivity {

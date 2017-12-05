@@ -63,4 +63,13 @@
         <item>Aprobado</item>
     </string-array>
 
+    <string-array name="titles">
+        <item>Codigo</item>
+        <item>Curso</item>
+        <item>Zona</item>
+        <item>Final</item>
+        <item>Total</item>
+        <item>Perfil</item>
+    </string-array>
+
 </resources>

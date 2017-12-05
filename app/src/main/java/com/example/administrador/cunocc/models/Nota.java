@@ -1,5 +1,7 @@
 package com.example.administrador.cunocc.models;
 
+import java.util.ArrayList;
+
 /**
  * Created by INTECAP on 30/11/2017.
  */
@@ -62,5 +64,16 @@ public class Nota {
 
     public void setPerfil(String perfil) {
         this.perfil = perfil;
+    }
+
+    public ArrayList<String> datos(){
+        ArrayList<String> data = new ArrayList<>();
+        data.add(codigo);
+        data.add(curso);
+        data.add(zona);
+        data.add(nfinal);
+        data.add(total);
+        data.add(perfil);
+        return data;
     }
 }
